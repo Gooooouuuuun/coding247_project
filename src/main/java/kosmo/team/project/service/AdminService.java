@@ -10,6 +10,8 @@ import kosmo.team.project.dto.MemberDTO;
 import kosmo.team.project.dto.MemberSearchSettingDTO;
 import kosmo.team.project.dto.MemberSearchShowHideSettingDTO;
 import kosmo.team.project.dto.PlayerRecordDTO;
+import kosmo.team.project.dto.SidoSearchSettingDTO;
+import kosmo.team.project.dto.SidoSearchShowHideSettingDTO;
 import kosmo.team.project.dto.Stadim2DTO;
 import kosmo.team.project.dto.TournamentDTO;
 import kosmo.team.project.dto.TournamentSearchDTO;
@@ -21,7 +23,25 @@ public interface AdminService {
 	//검색조건을 가져옴
 	public List<MemberSearchSettingDTO> getMemberSearchSettingList(MemberSearchSettingDTO memberSearchSettingDTO);
 	//검색조건 숨기기/보이기 업데이트
+	
+	public List<MemberSearchSettingDTO> getMemberShowHideSettingList(MemberSearchSettingDTO memberSearchSettingDTO);
+	
+	public List<SidoSearchSettingDTO> getSidoSearchSettingList(SidoSearchSettingDTO sidoSearchSettingDTO);
+	
+	public List<SidoSearchSettingDTO> getSidoShowHideSettingList(SidoSearchSettingDTO sidoSearchSettingDTO);
+	
+	
+	
+	
+	
 	public int updateMemberSearchShowHideSetting(MemberSearchShowHideSettingDTO memberSearchShowHideSettingDTO);
+	
+	public List<String> updateSidoShowHideSetting(SidoSearchShowHideSettingDTO sidoSearchShowHideSettingDTO);
+	
+	
+	
+	
+	
 	
 	public int getMemberListCnt(AdminSearchDTO adminSearchDTO);
 
@@ -214,6 +234,14 @@ public int getCommunityGallaryBoardListAllCnt();
 	 public int adminCommunityFreeBoardDetailCommentOfCommentUpdateProc(CommunityFreeBoardDetailDTO detailDTO);
 
 	 public int adminCommunityFreeBoardDetailCommentOfCommentDeleteProc(CommunityFreeBoardDetailDTO detailDTO);
+
+	
+
+	
+
+	
+
+	
 
 	
 

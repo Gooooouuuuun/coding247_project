@@ -202,10 +202,11 @@
 	
 	.divider {
 		height: 770px;
+		width:10px;
 		border-left: 1px solid #c59246e0;
 		margin-top: 15px;
-		margin-left: 20px;
-		margin-right: -110px;
+		margin-left:10px;
+		margin-right: -495px;
 	}
 
 	.adminPageContent {
@@ -227,7 +228,7 @@
 	</div>
 
 	<form name="adminDetailUpDelForm">
-		<div class="adminPageContent" style="display: flex; margin-right: 300px; position: relative; padding-bottom: 100px;">
+		<div class="adminPageContent" style="display: flex;position: relative; padding-bottom: 100px;">
 		<table align="center" style="margin-bottom: 10px; margin-top: 10px; margin-right:0;">
 			<tr>
 				<th class="memberRegFormMidTh">이 름</th>
@@ -398,7 +399,7 @@
 		<input type="hidden" name="m_no"
 			value="${requestScope.memberDTO.m_no}"> <input type="hidden"
 			name="player" value="${requestScope.playerRecordDTO.player}">
-		<div class="adminMemberUpDel" style="position: absolute; bottom: 40%; left: 62%;">
+		<div class="adminMemberUpDel" style="position: absolute; bottom: 40%; left: 57%;">
 			<input type="button" value="수정" class="adminMemberUpBtn" style="cursor:pointer" onclick="checkAdminMemberUpForm();">
 			<input type="button" value="삭제" class="adminMemberDelBtn" style="cursor:pointer" onclick="checkAdiminDelForm();">
 			<input type="button" value="목록" class="adminMemberMoveBtn" onclick="location.replace('/adminForm.do')">

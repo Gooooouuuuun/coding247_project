@@ -230,7 +230,7 @@ a{
 
 .adminTournamentCategoryTab {
     margin: 0 auto;
-    margin-top: 170px;
+    margin-top: 50px;
     border-collapse: separate;
     border-spacing: 100px 0;
     margin-bottom: 40px;
@@ -259,10 +259,9 @@ a{
 .adminTournamentSearch{
 	display: flex;
 	margin: 0 auto;
-	margin-top: 150px;
+	margin-top: 100px;
 	text-align: center;
 	justify-content: center;
-	margin-right: 350px;
 }
 
 .region1 {
@@ -295,4 +294,51 @@ a{
 	margin-top: 10px;
 	cursor: pointer;
 	margin-left: 30px;
+}
+
+.boardRegBtn{
+	background: #c59246e0;
+	border-radius: 10px;
+	border: none;
+	color: #FFFFFF;
+	width: 70px;
+	height: 50px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+
+.boardEmptyBtn{
+	background: #c59246e0;
+	border-radius: 10px;
+	border: none;
+	color: #FFFFFF;
+	width: 70px;
+	height: 50px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.boardResetBtn{
+	background: #c59246e0;
+	border-radius: 10px;
+	border: none;
+	color: #FFFFFF;
+	width: 70px;
+	height: 50px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+
+
+.boardResetBtn{
+	background: #c59246e0;
+	border-radius: 10px;
+	border: none;
+	color: #FFFFFF;
+	width: 70px;
+	height: 50px;
+	margin-top: 10px;
+	cursor: pointer;
 }

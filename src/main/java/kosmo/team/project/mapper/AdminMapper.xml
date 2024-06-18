@@ -761,82 +761,137 @@
 			display_position asc
 	</select>
 	
+	
+	<select id="getMemberShowHideSettingList"
+		resultType="kosmo.team.project.dto.MemberSearchSettingDTO"
+		parameterType="kosmo.team.project.dto.MemberSearchSettingDTO">
+		select 
+			search_condition_type		
+            ,is_active
+           ,display_position
+		from
+			member_search_setting
+	
+			
+
+	</select>
+	
+	
+	
 	<update id="updateGenderSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
-    UPDATE member_search_setting
-    SET is_active = #{genderSetting}
-    WHERE SEARCH_CONDITION_TYPE = 'gender'
+	    UPDATE member_search_setting
+	    SET DISPLAY_POSITION = #{genderSetting}
+	    WHERE SEARCH_CONDITION_TYPE = 'gender'
 	</update>
 	
 	<!-- 연령대 설정 업데이트 쿼리 -->
 	<update id="updateAgeRangeSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
 	    UPDATE member_search_setting
-	    SET is_active = #{ageRangeSetting}
+	    SET DISPLAY_POSITION = #{ageRangeSetting}
 	    WHERE SEARCH_CONDITION_TYPE = 'age_group'
 	</update>
 	
 	<!-- 시/도 설정 업데이트 쿼리 -->
 	<update id="updateSidoSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
 	    UPDATE member_search_setting
-	    SET is_active = #{sidoSetting}
+	    SET DISPLAY_POSITION = #{sidoSetting}
 	    WHERE SEARCH_CONDITION_TYPE = 'city'
 	</update>
 	
 	<!-- 가입일 설정 업데이트 쿼리 -->
 	<update id="updateJoinDateSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
 	    UPDATE member_search_setting
-	    SET is_active = #{joinDateSetting}
+	    SET DISPLAY_POSITION = #{joinDateSetting}
 	    WHERE SEARCH_CONDITION_TYPE = 'join_date'
 	</update>
 	
 	<!-- 경기수 설정 업데이트 쿼리 -->
 	<update id="updateGameCountSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
 	    UPDATE member_search_setting
-	    SET is_active = #{gameCountSetting}
+	    SET DISPLAY_POSITION = #{gameCountSetting}
 	    WHERE SEARCH_CONDITION_TYPE = 'game_count'
 	</update>
 	
 	<!-- 승리수 설정 업데이트 쿼리 -->
 	<update id="updateWinCountSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
 	    UPDATE member_search_setting
-	    SET is_active = #{winCountSetting}
+	    SET DISPLAY_POSITION = #{winCountSetting}
 	    WHERE SEARCH_CONDITION_TYPE = 'win_count'
 	</update>
 	
 	<!-- 무승부 설정 업데이트 쿼리 -->
 	<update id="updateDrawCountSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
 	    UPDATE member_search_setting
-	    SET is_active = #{drawCountSetting}
+	    SET DISPLAY_POSITION = #{drawCountSetting}
 	    WHERE SEARCH_CONDITION_TYPE = 'draw_count'
 	</update>
 	
 	<!-- 패배 설정 업데이트 쿼리 -->
 	<update id="updateLossCountSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
 	    UPDATE member_search_setting
-	    SET is_active = #{lossCountSetting}
+	    SET DISPLAY_POSITION = #{lossCountSetting}
 	    WHERE SEARCH_CONDITION_TYPE = 'loss_count'
 	</update>
 	
 	<!-- 골 설정 업데이트 쿼리 -->
 	<update id="updateGoalCountSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
 	    UPDATE member_search_setting
-	    SET is_active = #{goalCountSetting}
+	    SET DISPLAY_POSITION = #{goalCountSetting}
 	    WHERE SEARCH_CONDITION_TYPE = 'goals'
 	</update>
 	
 	<!-- 어시스트 설정 업데이트 쿼리 -->
 	<update id="updateAssistsCountSetting" parameterType="kosmo.team.project.dto.MemberSearchShowHideSettingDTO">
 	    UPDATE member_search_setting
-	    SET is_active = #{assistsCountSetting}
+	    SET DISPLAY_POSITION = #{assistsCountSetting}
 	    WHERE SEARCH_CONDITION_TYPE = 'assists'
 	</update>
 
 
+	<select id="getSidoSearchSettingList"
+		resultType="kosmo.team.project.dto.SidoSearchSettingDTO"
+		parameterType="kosmo.team.project.dto.SidoSearchSettingDTO">
+		select 
+			sido_id		
+            ,name 
+           ,display_position
+		from
+			sido
+		order by 
+			display_position asc
+	</select>
 
 
+	<select id="getSidoShowHideSettingList"
+		resultType="kosmo.team.project.dto.SidoSearchSettingDTO"
+		parameterType="kosmo.team.project.dto.SidoSearchSettingDTO">
+		select 
+			sido_id		
+            ,name 
+           ,display_position
+		from
+			sido
+		order by 
+			display_position asc
+		
+	</select>
 
-
-
-
+	<!-- 시도 설정 업데이트 쿼리 -->
+	<update id="updateSidoShowHideSetting" parameterType="kosmo.team.project.dto.SidoSearchShowHideSettingDTO" >
+  
+        UPDATE 
+			sido
+        
+        SET 
+        	display_position = ${display_position}
+        WHERE 
+        	sido_id = ${sido_id}
+   
+	</update>
+	
+	
+	
+	
 
 
 

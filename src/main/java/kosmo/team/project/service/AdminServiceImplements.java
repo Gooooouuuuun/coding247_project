@@ -14,6 +14,8 @@ import kosmo.team.project.dto.MemberDTO;
 import kosmo.team.project.dto.MemberSearchSettingDTO;
 import kosmo.team.project.dto.MemberSearchShowHideSettingDTO;
 import kosmo.team.project.dto.PlayerRecordDTO;
+import kosmo.team.project.dto.SidoSearchSettingDTO;
+import kosmo.team.project.dto.SidoSearchShowHideSettingDTO;
 import kosmo.team.project.dto.Stadim2DTO;
 import kosmo.team.project.dto.TournamentDTO;
 import kosmo.team.project.dto.TournamentSearchDTO;
@@ -35,6 +37,31 @@ public class AdminServiceImplements implements AdminService {
 		
 		return memberSearchSettingList;
 	}
+	
+	
+	@Override
+	public List<MemberSearchSettingDTO> getMemberShowHideSettingList(MemberSearchSettingDTO memberSearchSettingDTO) {
+		
+		List<MemberSearchSettingDTO> memberShowHideSettingList = this.adminDAO.getMemberShowHideSettingList(memberSearchSettingDTO);
+		
+		return memberShowHideSettingList;
+	}
+	
+	@Override
+	public List<SidoSearchSettingDTO> getSidoSearchSettingList(SidoSearchSettingDTO sidoSearchSettingDTO) {
+		
+		List<SidoSearchSettingDTO> sidoSearchSettingList = this.adminDAO.getSidoSearchSettingList(sidoSearchSettingDTO);
+		
+		return sidoSearchSettingList;
+	}
+
+	
+	@Override
+	public List<SidoSearchSettingDTO> getSidoShowHideSettingList(SidoSearchSettingDTO sidoSearchSettingDTO) {
+		List<SidoSearchSettingDTO> sidoShowHideSettingList = this.adminDAO.getSidoShowHideSettingList(sidoSearchSettingDTO);
+		return sidoShowHideSettingList;
+	}
+
 	
 	
 	//검색조건 숨기기/보이기 업데이트
@@ -94,6 +121,42 @@ public class AdminServiceImplements implements AdminService {
 
 	    return updatedRows;
 	}
+	
+	@Override
+	public List<String> updateSidoShowHideSetting(SidoSearchShowHideSettingDTO sidoSearchShowHideSettingDTO) {
+		int updatedSidoRows = 0;
+
+		List<String> list = sidoSearchShowHideSettingDTO.getSidoOrder();
+		
+		for(int i=0;  i < list.size();i++) {
+			
+			String[] id_value = list.get(i).split("_");
+			int sido_id = Integer.parseInt(id_value[0]);
+			int display_position = Integer.parseInt(id_value[1]);
+			
+			SidoSearchShowHideSettingDTO sidoShowHideSettingDTO = new SidoSearchShowHideSettingDTO();
+			sidoShowHideSettingDTO.setSido_id(sido_id);
+			sidoShowHideSettingDTO.setDisplay_position(display_position);
+			
+			updatedSidoRows = adminDAO.updateSidoShowHideSetting(sidoShowHideSettingDTO);
+			
+			//System.out.println("Updated rows for sido_id " + sido_id + ": " + updatedSidoRows);
+		
+		}
+		return null;
+
+
+	    
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -879,6 +942,12 @@ public class AdminServiceImplements implements AdminService {
 			 return adminDAO.adminCommunityFreeBoardDetailCommentOfCommentDeleteProc(detailDTO);
 		 }
 
+
+	
+
+		
+
+		
 
 
 

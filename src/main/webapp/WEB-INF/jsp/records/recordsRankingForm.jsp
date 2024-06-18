@@ -456,20 +456,37 @@
 				    				<th onClick="clickToSortTabAll('')"style="width:50px; cursor:pointer;">도움 △</th>
 				    			</c:if>
 				    		</tr>
-			    			<c:forEach var="recordsRankingTabAll" items="${requestScope.recordsRankingTabAll}" varStatus="status">
-								<tr style="border-bottom: 1px solid #c59246e0;">
-									<td align="center">${status.count}</td>
-									<!--${requestScope.boardMap.begin_serialNo_desc - status.index} -->
-									<td align="center">${recordsRankingTabAll.nickname}</td>
-									<td align="center">${recordsRankingTabAll.games_played}</td>
-									<td align="center">${recordsRankingTabAll.wins}</td>
-									<td align="center">${recordsRankingTabAll.draws}</td>
-									<td align="center">${recordsRankingTabAll.losses}</td>
-									<td align="center">${recordsRankingTabAll.goals_for}</td>
-									<td align="center">${recordsRankingTabAll.goals_assist}</td>
-								</tr>
-							</c:forEach>
 				    	</table>
+				    	<div class="recordsRankingFormTabAllTableScrollDiv" style="height: 600px; width:1050px; overflow-x: hidden; overflow-y: auto; margin: 0 auto; padding-left: 15px;">
+				    		<table class="recordsRankingFormTabAllScrollTable" cellpadding="7" align="center" style="border-collapse:collapse; margin:0 auto; margin-top:10px; width:1000px;">
+				    			<c:forEach var="recordsRankingTabAll" items="${requestScope.recordsRankingTabAll}" varStatus="status">
+									<tr style="border-bottom: 1px solid #c59246e0;">
+										<c:if test="${sessionScope.nickname.equals(recordsRankingTabAll.nickname)}">
+											<td align="center" style="width: 60px; background: yellow;">${status.count}</td>
+											<!--${requestScope.boardMap.begin_serialNo_desc - status.index} -->
+											<td align="center" style="width: 250px; background: yellow;">${recordsRankingTabAll.nickname}</td>
+											<td align="center" style="width: 140px; background: yellow;">${recordsRankingTabAll.games_played}</td>
+											<td align="center" style="width: 130px; background: yellow;">${recordsRankingTabAll.wins}</td>
+											<td align="center" style="width: 130px; background: yellow;">${recordsRankingTabAll.draws}</td>
+											<td align="center" style="width: 130px; background: yellow;">${recordsRankingTabAll.losses}</td>
+											<td align="center" style="width: 130px; background: yellow;">${recordsRankingTabAll.goals_for}</td>
+											<td align="center" style="width: 130px; background: yellow;">${recordsRankingTabAll.goals_assist}</td>
+										</c:if>
+										<c:if test="${!sessionScope.nickname.equals(recordsRankingTabAll.nickname)}">
+										    <td align="center" style="width: 60px;">${status.count}</td>
+										    <!--${requestScope.boardMap.begin_serialNo_desc - status.index} -->
+										    <td align="center" style="width: 250px;">${recordsRankingTabAll.nickname}</td>
+										    <td align="center" style="width: 140px;">${recordsRankingTabAll.games_played}</td>
+										    <td align="center" style="width: 130px;">${recordsRankingTabAll.wins}</td>
+										    <td align="center" style="width: 130px;">${recordsRankingTabAll.draws}</td>
+										    <td align="center" style="width: 130px;">${recordsRankingTabAll.losses}</td>
+										    <td align="center" style="width: 130px;">${recordsRankingTabAll.goals_for}</td>
+										    <td align="center" style="width: 130px;">${recordsRankingTabAll.goals_assist}</td>
+										</c:if>
+									</tr>
+								</c:forEach>
+							</table>
+				    	</div>
 				    </div>
 				</form>
 			</div>

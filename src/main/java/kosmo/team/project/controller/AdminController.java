@@ -22,6 +22,8 @@ import kosmo.team.project.dto.MemberDTO;
 import kosmo.team.project.dto.MemberSearchSettingDTO;
 import kosmo.team.project.dto.MemberSearchShowHideSettingDTO;
 import kosmo.team.project.dto.PlayerRecordDTO;
+import kosmo.team.project.dto.SidoSearchSettingDTO;
+import kosmo.team.project.dto.SidoSearchShowHideSettingDTO;
 import kosmo.team.project.dto.Stadim2DTO;
 import kosmo.team.project.dto.TournamentDTO;
 import kosmo.team.project.dto.TournamentSearchDTO;
@@ -42,7 +44,7 @@ public class AdminController {
 	
 	@RequestMapping("/adminForm.do")
 
-	public ModelAndView adminForm(AdminSearchDTO adminSearchDTO, MemberSearchSettingDTO memberSearchSettingDTO,HttpSession session  ) {
+	public ModelAndView adminForm(AdminSearchDTO adminSearchDTO, MemberSearchSettingDTO memberSearchSettingDTO,SidoSearchSettingDTO sidoSearchSettingDTO ,HttpSession session  ) {
 		
 		
 		// 세션에서 사용자 아이디를 가져옴
@@ -55,8 +57,23 @@ public class AdminController {
 		
 		
 		
-		
-		
+//		int[] no = {5, 8, 3, 2};
+//		int tmp = 0;
+//
+//		for (int i = 0; i < no.length - 1; i++) {
+//		    for (int j = 0; j < no.length - 1; j++) {
+//		        if (no[j] > no[j + 1]) {
+//		            tmp = no[j];       // Store the value of no[j] in tmp
+//		            no[j] = no[j + 1]; // Assign the value of no[j+1] to no[j]
+//		            no[j + 1] = tmp;   // Assign the value in tmp to no[j+1]
+//		        }
+//		    }
+//		}
+//		// 정렬된 배열 출력
+//		for (int i = 0; i < no.length; i++) {
+//			System.out.print(no[i] + " ");
+//		}
+//		
 		
 		
 		
@@ -80,15 +97,25 @@ public class AdminController {
 		adminSearchDTO.setEnd_rowNo((int) memberMap.get("end_rowNo"));
 			
 		
-	     System.out.println("gender: " + adminSearchDTO.getAgeRange());
+	    // System.out.println("gender: " + adminSearchDTO.getAgeRange());
 		//System.out.println("maxDate1: " + adminSearchDTO.getMaxDate());
 		
 		List<MemberDTO> memberList = this.adminService.getMemberList(adminSearchDTO);
 		//System.out.println("maxDate2: " + adminSearchDTO.getMaxDate());
 		List<MemberSearchSettingDTO> memberSearchSettingList = this.adminService.getMemberSearchSettingList(memberSearchSettingDTO);
+		
+		
+		List<MemberSearchSettingDTO> memberShowHideSettingList = this.adminService.getMemberShowHideSettingList(memberSearchSettingDTO);
+		
+		
+		List<SidoSearchSettingDTO> sidoSearchSettingList = this.adminService.getSidoSearchSettingList(sidoSearchSettingDTO);
+		
+		List<SidoSearchSettingDTO> sidoShowHideSettingList = this.adminService.getSidoShowHideSettingList(sidoSearchSettingDTO);
+		
+		
 
-		System.out.println("Sigungu  " + adminSearchDTO.getSigungu());
-		System.out.println("Keyword2  " + adminSearchDTO.getKeyword2());
+		//System.out.println("Sigungu  " + adminSearchDTO.getSigungu());
+		//System.out.println("Keyword2  " + adminSearchDTO.getKeyword2());
 		
 		//System.out.println("minDate: " + adminSearchDTO.getMinDate());
 
@@ -97,6 +124,12 @@ public class AdminController {
 
 		mav.addObject("memberList", memberList);
 		mav.addObject("memberSearchSettingList", memberSearchSettingList);
+		
+		mav.addObject("memberShowHideSettingList", memberShowHideSettingList);
+		
+		mav.addObject("sidoSearchSettingList", sidoSearchSettingList);
+		
+		mav.addObject("sidoShowHideSettingList", sidoShowHideSettingList);
 		
 		mav.addObject("memberListCnt", memberListCnt);
 		mav.addObject("memberListAllCnt", memberListAllCnt);
@@ -138,7 +171,32 @@ public class AdminController {
 	
 	
 	
+	@RequestMapping(value = "/SidoSettingProc.do"
+
+			, method = RequestMethod.POST
+
+			, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+		public Map<String, String> SidoSettingProc(
+				SidoSearchShowHideSettingDTO sidoSearchShowHideSettingDTO
 	
+		) {
+
+		// ------------------------------------------------
+		// 게시판 수정 결과물을 저장할 HashMap 객체 생성하기.
+		// ------------------------------------------------
+		Map<String, String> resultMap = new HashMap<String, String>();
+
+
+		List<String> updateSidoSearchShowHideSetting = this.adminService.updateSidoShowHideSetting(sidoSearchShowHideSettingDTO);
+
+
+
+		resultMap.put("result", updateSidoSearchShowHideSetting + "");
+
+
+		return resultMap;
+	}
 	
 	
 	
@@ -241,7 +299,7 @@ public class AdminController {
 		// -------------------------------------------
 		int memberUpCnt = this.adminService.updateMember(memberDTO);
 		int playerRecordUpCnt = this.adminService.updatePlayerRecord(playerRecordDTO);
-		System.out.println(memberDTO.getNickname());
+		//System.out.println(memberDTO.getNickname());
 		// -------------------------------------------
 		// HashMap 객체에 게시판 수정 행의 개수 저장하기기
 		// -------------------------------------------

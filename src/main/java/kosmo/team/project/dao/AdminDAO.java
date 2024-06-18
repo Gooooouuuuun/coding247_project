@@ -12,6 +12,8 @@ import kosmo.team.project.dto.MemberDTO;
 import kosmo.team.project.dto.MemberSearchSettingDTO;
 import kosmo.team.project.dto.MemberSearchShowHideSettingDTO;
 import kosmo.team.project.dto.PlayerRecordDTO;
+import kosmo.team.project.dto.SidoSearchSettingDTO;
+import kosmo.team.project.dto.SidoSearchShowHideSettingDTO;
 import kosmo.team.project.dto.Stadim2DTO;
 import kosmo.team.project.dto.TournamentDTO;
 import kosmo.team.project.dto.TournamentSearchDTO;
@@ -23,6 +25,12 @@ public interface AdminDAO {
 
 	// 검색조건을 거져옴
 	public List<MemberSearchSettingDTO> getMemberSearchSettingList(MemberSearchSettingDTO memberSearchSettingDTO);
+	public List<MemberSearchSettingDTO> getMemberShowHideSettingList(MemberSearchSettingDTO memberSearchSettingDTO);
+	public List<SidoSearchSettingDTO> getSidoSearchSettingList(SidoSearchSettingDTO sidoSearchSettingDTO);
+	public List<SidoSearchSettingDTO> getSidoShowHideSettingList(SidoSearchSettingDTO sidoSearchSettingDTO);
+	
+	public int updateSidoShowHideSetting(SidoSearchShowHideSettingDTO sidoSearchShowHideSettingDTO);
+	
 	//검색조건 숨기기/보이기 업데이트
 	public int updateMemberSearchShowHideSetting(MemberSearchShowHideSettingDTO memberSearchShowHideSettingDTO);
 	
@@ -261,7 +269,23 @@ public int updateLossCountSetting(MemberSearchShowHideSettingDTO memberSearchSho
 
 public int updateGoalCountSetting(MemberSearchShowHideSettingDTO memberSearchShowHideSettingDTO);
 
+
 public int updateAssistsCountSetting(MemberSearchShowHideSettingDTO memberSearchShowHideSettingDTO);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
