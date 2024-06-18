@@ -23,7 +23,7 @@ For building and running the application you need:
 - [OracleXE] 개발자 연습용 오라클 버전
 
 ---
-## 주요 기능 📦
+## 주요 기능 🖱️
 
 ### ⭐️ 경기장 대관/양도
 - 실시간 경기장 예약 현황 확인
@@ -48,4 +48,6 @@ For building and running the application you need:
 - 검색 조건 함수 제작
 - 페이징 처리
 - sort 정렬
+
+### PPT 제작
 ---
