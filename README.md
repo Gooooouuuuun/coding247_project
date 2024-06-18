@@ -1,5 +1,5 @@
 # Sports Team Matching System Web Page v1.0 
-> **Kosmo 한국소프트웨어인재개발원 141기** <br/> **개발기간: 2023.12 ~ 2024.06**
+> **Kosmo 한국소프트웨어인재개발원 140기** <br/> **개발기간: 2023.12 ~ 2024.06**
 
 ## PPT 시연 
 > https://drive.google.com/file/d/1yeU_HJIOQ9IW0uz0-fM3FaYOnMEfqMLh/view?usp=sharing <br>
